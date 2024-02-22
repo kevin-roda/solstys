@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @font-face {
   font-family: Futura;
   src: url(./fonts/Futura.ttc);
@@ -31,6 +31,14 @@ h2 {
   line-height: 35px;
   font-weight: 500;
 }
+.rk_home_btn_logo {
+  figure {
+    margin-left: 0;
+    img {
+      width: 150px;
+    }
+  }
+}
 .rk_arrow_circle {
   width: 80px;
   display: flex;
@@ -51,7 +59,7 @@ h2 {
     transform: translateY(-1px);
   }
   &:after {
-    content: '';
+    content: "";
     width: 8px;
     height: 8px;
     position: absolute;
@@ -76,14 +84,14 @@ h2 {
     width: 52px;
     .rk_circle {
       background-color: transparent;
-      border: solid 1px #fb8c24;
+      border: solid 1px #fb8c24 !important;
     }
     .rk_arrow {
-      background-color: #fb8c24;
+      background-color: #fb8c24 !important;
       width: 20px;
     }
     &:after {
-      border-color: #fb8c24;
+      border-color: #fb8c24 !important;
     }
   }
   &.white {
@@ -155,6 +163,7 @@ footer {
   .linkedin {
     display: none;
   }
+
   .rk_up {
     display: flex;
     align-items: center;
@@ -249,7 +258,7 @@ footer {
       height: 30px;
       cursor: pointer;
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         transform: translateY(-50%) rotate(-45deg);
@@ -258,7 +267,7 @@ footer {
         background-color: #000000;
       }
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         transform: translateY(-50%) rotate(45deg);
@@ -307,7 +316,7 @@ footer {
         top: 57px;
 
         &:before {
-          content: '';
+          content: "";
           width: 60px;
           height: 1px;
           background-color: #000000;
@@ -323,7 +332,7 @@ footer {
           text-transform: uppercase;
         }
       }
-      input:not([type='submit']),
+      input:not([type="submit"]),
       select {
         border-top: none;
         border-left: none;
@@ -406,6 +415,9 @@ footer {
 }
 
 @media screen and (max-width: 720px) {
+  .to_top {
+    transform: rotate(-90deg) scale(0.7) !important;
+  }
   .rk_contactform {
     padding: 40px 40px;
     .rk_content {

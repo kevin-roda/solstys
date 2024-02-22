@@ -7,6 +7,11 @@
     ></RouterLink>
 
     <section class="rk_sct1">
+      <RouterLink to="/" class="rk_home_btn_logo">
+        <figure>
+          <img src="../assets/Logo.png" alt="logo solstys" />
+        </figure>
+      </RouterLink>
       <h1>
         Notre expérience <br />
         à votre service.
@@ -17,14 +22,14 @@
         <span class="rk_circle"></span>
       </div>
       <p>
-        C’est d’une expérience professionnelle commune, <br />puis d’une amitié solide, qu’est né
-        notre projet.
+        C’est d’une expérience professionnelle commune, <br />puis d’une amitié
+        solide, qu’est né notre projet.
       </p>
       <p class="rk_deco_b" content=">">
-        Yann Soleilland et Camille Jean mettent aujourd’hui à votre service leurs 20 années
-        d’expérience dans le secteur du Tourisme d’une part dans le conseil et la formation de vos
-        équipes et d’autre part dans l’offre séjour groupes et séminaires, en France comme à
-        l’étranger.
+        Yann Soleilland et Camille Jean mettent aujourd’hui à votre service
+        leurs 20 années d’expérience dans le secteur du Tourisme d’une part dans
+        le conseil et la formation de vos équipes et d’autre part dans l’offre
+        séjour groupes et séminaires, en France comme à l’étranger.
       </p>
     </section>
     <div class="rk_separator_line"><div class="side"></div></div>
@@ -34,8 +39,8 @@
         <h3 class="rk_deco_b bottom" content="01">Notre coeur de métier</h3>
         <h4>Conseil et Formation</h4>
         <p class="orange">
-          NOTRE MISSION EST D’ACCOMPAGNER VOTRE ORGANISATION EN INTÉGRANT VOS ÉQUIPES AU SERVICE DU
-          DÉVELOPPEMENT COMMERCIAL DE VOTRE ACTIVITÉ.
+          NOTRE MISSION EST D’ACCOMPAGNER VOTRE ORGANISATION EN INTÉGRANT VOS
+          ÉQUIPES AU SERVICE DU DÉVELOPPEMENT COMMERCIAL DE VOTRE ACTIVITÉ.
         </p>
 
         <ul>
@@ -45,19 +50,22 @@
           <li>Maintenir les motivations</li>
         </ul>
         <p>
-          Nous intervenons à différents niveaux : direction, manager, agents dans les domaines du
-          Management de projet, Marketing, Commercial, Management de transition, Recrutement,
-          Téléprospection & télévente, Web & Multimédia.
+          Nous intervenons à différents niveaux : direction, manager, agents
+          dans les domaines du Management de projet, Marketing, Commercial,
+          Management de transition, Recrutement, Téléprospection & télévente,
+          Web & Multimédia.
         </p>
       </div>
       <div class="rk_two">
         <h3 class="rk_deco_b bottom" content="02">Nos moyens</h3>
         <h4>Groupes&Co <br />Apporteur d’affaires</h4>
-        <p class="orange">UN ATOUT SUPPLÉMENTAIRE POUR L’APPORT DE NOUVEAUX SÉJOURS GROUPES.</p>
+        <p class="orange">
+          UN ATOUT SUPPLÉMENTAIRE POUR L’APPORT DE NOUVEAUX SÉJOURS GROUPES.
+        </p>
         <ul>
           <li>
-            Référencement de votre ou vos destinations auprès d’une cible groupe et/ou séminaire en
-            tant que partenaire.
+            Référencement de votre ou vos destinations auprès d’une cible groupe
+            et/ou séminaire en tant que partenaire.
           </li>
         </ul>
       </div>
@@ -65,22 +73,25 @@
         <h3 class="rk_deco_b bottom" content="03">Nos moyens</h3>
         <h4>Une base client nationale</h4>
         <p>
-          Nous sommes force de proposition auprès d’une base client groupe issu de toute la France &
-          intégration sur notre site <a href="">Solstys Groupes&Co</a>.
+          Nous sommes force de proposition auprès d’une base client groupe issu
+          de toute la France & intégration sur notre site
+          <a href="">Solstys Groupes&Co</a>.
         </p>
         <ul>
           <li>
-            Conseil et transmission du devis au client avec mise en avant de votre marque – en toute
-            transparence – sans marge et au tarif garanti
+            Conseil et transmission du devis au client avec mise en avant de
+            votre marque – en toute transparence – sans marge et au tarif
+            garanti
           </li>
           <li>Suivi du dossier groupe jusqu’à la confirmation du séjour</li>
           <li>
-            Contrat groupe au nom du client et règlement effectué directement par le groupe à votre
-            organisme
+            Contrat groupe au nom du client et règlement effectué directement
+            par le groupe à votre organisme
           </li>
           <li>
-            Un service « risque zéro » pour votre structure basé uniquement sur une rémunération
-            sous forme de commissions après séjour et effectif réel du groupe.
+            Un service « risque zéro » pour votre structure basé uniquement sur
+            une rémunération sous forme de commissions après séjour et effectif
+            réel du groupe.
           </li>
         </ul>
 
@@ -124,24 +135,26 @@
         <div numero="01">
           <h3 class="orange">Transparence</h3>
           <p>
-            Nous mettons un point d’honneur à communiquer avec transparence sur des points clés tels
-            que notre méthodologie, les tarifs pratiqués, nos clients et les actions menées. Nous
-            attendons une réciprocité envers nos partenaires.
+            Nous mettons un point d’honneur à communiquer avec transparence sur
+            des points clés tels que notre méthodologie, les tarifs pratiqués,
+            nos clients et les actions menées. Nous attendons une réciprocité
+            envers nos partenaires.
           </p>
         </div>
         <div numero="02">
           <h3 class="orange">Écoute</h3>
           <p>
-            L’écoute et la communication sont des éléments centraux de notre mission, c’est la
-            raison qui nous permet de travailler en confiance avec nos clients afin de leur proposer
-            des offres sur-mesure.
+            L’écoute et la communication sont des éléments centraux de notre
+            mission, c’est la raison qui nous permet de travailler en confiance
+            avec nos clients afin de leur proposer des offres sur-mesure.
           </p>
         </div>
         <div numero="03">
           <h3 class="orange">Expérience</h3>
           <p>
-            Nous mettons tout notre savoir-faire et notre expérience au service de nos clients et
-            partenaires afin de les satisfaire dans notre mission.
+            Nous mettons tout notre savoir-faire et notre expérience au service
+            de nos clients et partenaires afin de les satisfaire dans notre
+            mission.
           </p>
         </div>
       </div>
@@ -161,7 +174,7 @@
           <p class="title">Solstys</p>
           <p>Responsable des opérations</p>
           <hr />
-          <p>Fabrice MEGEVAND</p>
+          <p>Yann Soleilland</p>
           <hr class="slim" />
           <p>06 19 50 84 62</p>
         </div>
@@ -201,19 +214,28 @@
                 <h2>contact</h2>
               </div>
               <p>
-                Nous vous invitons à remplir le formulaire de contact suivant pour toute demande
-                d’information ou de devis. Nous vous répondrons dans les plus brefs délais.
+                Nous vous invitons à remplir le formulaire de contact suivant
+                pour toute demande d’information ou de devis. Nous vous
+                répondrons dans les plus brefs délais.
               </p>
               <div class="rk_left">
                 <input type="text" name="nom" placeholder="Nom*" />
                 <input type="text" name="email" placeholder="Adresse mail*" />
 
-                <input type="text" name="entreprise" placeholder="Entreprise" />
-                <input type="text" name="objet" placeholder="objet" />
+                <input
+                  type="text"
+                  name="entreprise"
+                  placeholder="Entreprise*"
+                />
+                <input type="text" name="objet" placeholder="Objet*" />
               </div>
               <div class="rk_right">
                 <input type="text" name="prenom" placeholder="Prenom" />
-                <input type="number" name="numero" placeholder="Numéro de téléphone*" />
+                <input
+                  type="number"
+                  name="numero"
+                  placeholder="Numéro de téléphone*"
+                />
                 <input type="text" name="poste" placeholder="Poste*" />
 
                 <select name="service" id="pet-select">
@@ -231,7 +253,12 @@
                 placeholder="Votre message"
               ></textarea>
               <label for="submitBtn" class="submit">
-                <input type="submit" id="submitBtn" name="submitBtn" value="Envoyer" />
+                <input
+                  type="submit"
+                  id="submitBtn"
+                  name="submitBtn"
+                  value="Envoyer"
+                />
                 <div class="rk_arrow_circle light">
                   <span class="rk_arrow"></span>
                   <span class="rk_circle"></span>
@@ -277,13 +304,13 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const formActiv = ref(false)
-const ready = ref(false)
+const formActiv = ref(false);
+const ready = ref(false);
 setTimeout(() => {
-  ready.value = true
-}, 400)
+  ready.value = true;
+}, 400);
 </script>
 
 <style lang="scss" scoped>
@@ -316,7 +343,7 @@ $filet: #707070;
     text-transform: uppercase;
     font-weight: 300;
     &::before {
-      content: '';
+      content: "";
       background-color: $oposcolor;
       width: 80px;
       display: inline-block;
@@ -335,6 +362,7 @@ $filet: #707070;
     position: relative;
     &.rk_sct1 {
       padding-bottom: 100px;
+      padding-top: 50px;
       p {
         font-family: Futuralight;
         font-size: 26px;
@@ -433,7 +461,7 @@ $filet: #707070;
             position: absolute;
             top: 13px;
             left: 30px;
-            content: '';
+            content: "";
           }
         }
         p {
@@ -471,7 +499,7 @@ $filet: #707070;
           text-decoration: none;
         }
         &.orange {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: "Bebas Neue", sans-serif;
           font-size: 31px;
           color: $orange;
         }
@@ -479,7 +507,7 @@ $filet: #707070;
       ul {
         padding-left: 15px;
         li {
-          list-style-type: '+';
+          list-style-type: "+";
           padding-left: 10px;
           font-family: Futuralight;
           font-size: 20px;
@@ -505,7 +533,7 @@ $filet: #707070;
         &:nth-child(3):before {
           position: absolute;
           top: 0;
-          content: '';
+          content: "";
           background-color: $oposcolor;
           width: 80px;
           display: inline-block;
@@ -547,7 +575,7 @@ $filet: #707070;
           position: absolute;
           bottom: 0;
           right: 0;
-          content: '';
+          content: "";
           background-color: $filet;
           width: 1px;
           height: 80px;
@@ -677,7 +705,7 @@ $filet: #707070;
     position: relative;
     &:not(.noLine, .noLineCenter) {
       &:after {
-        content: '';
+        content: "";
         height: 100%;
         border-right: solid 1px $filet;
         width: 1px;
@@ -868,6 +896,10 @@ $filet: #707070;
           font-size: 55px;
         }
         .upSplit {
+          justify-content: space-between;
+          > div {
+            width: 47% !important;
+          }
           h3 {
             padding-left: 0;
           }
@@ -878,7 +910,7 @@ $filet: #707070;
         margin-left: 60px;
         &:before {
           display: block !important;
-          content: '';
+          content: "";
           width: 120px;
           height: 1px;
           background-color: #06090b;
@@ -934,6 +966,9 @@ $filet: #707070;
         }
       }
     }
+  }
+  .rk_home_btn {
+    display: none;
   }
 }
 </style>

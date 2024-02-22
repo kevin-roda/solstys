@@ -5,11 +5,15 @@
         <span class="rk_arrow"></span>
         <span class="rk_circle"></span></div
     ></RouterLink>
-
-    <section>
+    <section class="first">
+      <RouterLink to="/" class="rk_home_btn_logo">
+        <figure>
+          <img src="/logo-blanc.png" alt="logo solstys" />
+        </figure>
+      </RouterLink>
       <h1>
         La ressource pour <br />
-        Améliorer votre offre
+        améliorer votre offre
       </h1>
 
       <div class="rk_arrow_circle white">
@@ -49,24 +53,26 @@
         <div numero="01">
           <h3 class="orange">Transparence</h3>
           <p>
-            Nous mettons un point d’honneur à communiquer avec transparence sur des points clés tels
-            que notre méthodologie, les tarifs pratiqués, nos clients et les actions menées. Nous
-            attendons une réciprocité envers nos partenaires.
+            Nous mettons un point d’honneur à communiquer avec transparence sur
+            des points clés tels que notre méthodologie, les tarifs pratiqués,
+            nos clients et les actions menées. Nous attendons une réciprocité
+            envers nos partenaires.
           </p>
         </div>
         <div numero="02">
           <h3 class="orange">Écoute</h3>
           <p>
-            L’écoute et la communication sont des éléments centraux de notre mission, c’est la
-            raison qui nous permet de travailler en confiance avec nos clients afin de leur proposer
-            des offres sur-mesure.
+            L’écoute et la communication sont des éléments centraux de notre
+            mission, c’est la raison qui nous permet de travailler en confiance
+            avec nos clients afin de leur proposer des offres sur-mesure.
           </p>
         </div>
         <div numero="03">
           <h3 class="orange">Expérience</h3>
           <p>
-            Nous mettons tout notre savoir-faire et notre expérience au service de nos clients et
-            partenaires afin de les satisfaire dans notre mission.
+            Nous mettons tout notre savoir-faire et notre expérience au service
+            de nos clients et partenaires afin de les satisfaire dans notre
+            mission.
           </p>
         </div>
       </div>
@@ -141,19 +147,24 @@
                 <h2>contact</h2>
               </div>
               <p>
-                Nous vous invitons à remplir le formulaire de contact suivant pour toute demande
-                d’information ou de devis. Nous vous répondrons dans les plus brefs délais.
+                Nous vous invitons à remplir le formulaire de contact suivant
+                pour toute demande d’information ou de devis. Nous vous
+                répondrons dans les plus brefs délais.
               </p>
               <div class="rk_left">
                 <input type="text" name="nom" placeholder="Nom*" />
                 <input type="text" name="email" placeholder="Adresse mail*" />
 
                 <input type="text" name="entreprise" placeholder="Entreprise" />
-                <input type="text" name="objet" placeholder="objet" />
+                <input type="text" name="objet" placeholder="Objet*" />
               </div>
               <div class="rk_right">
                 <input type="text" name="prenom" placeholder="Prenom" />
-                <input type="number" name="numero" placeholder="Numéro de téléphone*" />
+                <input
+                  type="number"
+                  name="numero"
+                  placeholder="Numéro de téléphone*"
+                />
                 <input type="text" name="poste" placeholder="Poste*" />
                 <select name="service" id="pet-select">
                   <option selected disabled>Service concerné*</option>
@@ -170,7 +181,12 @@
                 placeholder="Votre message"
               ></textarea>
               <label for="submitBtn" class="submit">
-                <input type="submit" id="submitBtn" name="submitBtn" value="Envoyer" />
+                <input
+                  type="submit"
+                  id="submitBtn"
+                  name="submitBtn"
+                  value="Envoyer"
+                />
                 <div class="rk_arrow_circle light">
                   <span class="rk_arrow"></span>
                   <span class="rk_circle"></span>
@@ -219,14 +235,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const formActiv = ref(false)
-const ready = ref(false)
+const formActiv = ref(false);
+const ready = ref(false);
 
 setTimeout(() => {
-  ready.value = true
-}, 400)
+  ready.value = true;
+}, 400);
 </script>
 
 <style lang="scss" scoped>
@@ -259,7 +275,7 @@ $filet: #707070;
     text-transform: uppercase;
     font-weight: 300;
     &::before {
-      content: '';
+      content: "";
       background-color: $oposcolor;
       width: 80px;
       display: inline-block;
@@ -276,6 +292,9 @@ $filet: #707070;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    &.first {
+      padding-top: 50px;
+    }
     &:not(.noLine) {
       border-right: solid 1px $filet;
       border-left: solid 1px $filet;
@@ -330,7 +349,7 @@ $filet: #707070;
             position: absolute;
             top: 13px;
             left: 30px;
-            content: '';
+            content: "";
           }
         }
         p {
@@ -373,7 +392,7 @@ $filet: #707070;
         &:nth-child(3):before {
           position: absolute;
           top: 0;
-          content: '';
+          content: "";
           background-color: $oposcolor;
           width: 80px;
           display: inline-block;
@@ -523,7 +542,7 @@ $filet: #707070;
     position: relative;
     &:not(.noLine, .noLineCenter) {
       &:after {
-        content: '';
+        content: "";
         height: 100%;
         border-right: solid 1px $filet;
         width: 1px;
@@ -698,6 +717,18 @@ $filet: #707070;
       }
       .rk_one,
       .rk_two {
+        align-items: start;
+        p {
+          width: 100%;
+          text-align: left;
+          &:before {
+            right: inherit;
+            left: 0;
+          }
+        }
+        .rk_deco_b {
+          margin-left: 120px;
+        }
         h4 {
           font-size: 55px;
         }
@@ -712,7 +743,7 @@ $filet: #707070;
         margin-left: 60px;
         &:before {
           display: block !important;
-          content: '';
+          content: "";
           width: 120px;
           height: 1px;
           background-color: white;
@@ -760,6 +791,9 @@ $filet: #707070;
       width: calc(100% - 30px);
       max-width: inherit;
     }
+  }
+  .rk_home_btn {
+    display: none;
   }
 }
 </style>
