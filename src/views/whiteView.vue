@@ -25,7 +25,8 @@
         C’est d’une expérience professionnelle commune, <br />puis d’une amitié
         solide, qu’est né notre projet.
       </p>
-      <p class="rk_deco_b" content=">">
+      <p class="rk_deco_b">
+        <img src="/fleche.svg" alt="image de >" />
         Yann Soleilland et Camille Jean mettent aujourd’hui à votre service
         leurs 20 années d’expérience dans le secteur du Tourisme d’une part dans
         le conseil et la formation de vos équipes et d’autre part dans l’offre
@@ -36,7 +37,10 @@
 
     <section class="rk_middle_sct">
       <div class="rk_one">
-        <h3 class="rk_deco_b bottom" content="01">Notre coeur de métier</h3>
+        <h3 class="rk_deco_b bottom">
+          Notre coeur de métier
+          <img src="/01-Solstys.svg" alt="01" srcset="" />
+        </h3>
         <h4>Conseil et Formation</h4>
         <p class="orange">
           NOTRE MISSION EST D’ACCOMPAGNER VOTRE ORGANISATION EN INTÉGRANT VOS
@@ -57,7 +61,9 @@
         </p>
       </div>
       <div class="rk_two">
-        <h3 class="rk_deco_b bottom" content="02">Nos moyens</h3>
+        <h3 class="rk_deco_b bottom" content="02">
+          <img src="/02-Solstys.svg" alt="01" srcset="" />Notre plateforme
+        </h3>
         <h4>Groupes&Co <br />Apporteur d’affaires</h4>
         <p class="orange">
           UN ATOUT SUPPLÉMENTAIRE POUR L’APPORT DE NOUVEAUX SÉJOURS GROUPES.
@@ -70,12 +76,16 @@
         </ul>
       </div>
       <div class="rk_one three">
-        <h3 class="rk_deco_b bottom" content="03">Nos moyens</h3>
+        <h3 class="rk_deco_b bottom" content="03">
+          <img src="/03-Solstys.svg" alt="01" srcset="" />Nos moyens
+        </h3>
         <h4>Une base client nationale</h4>
         <p>
           Nous sommes force de proposition auprès d’une base client groupe issu
           de toute la France & intégration sur notre site
-          <a href="">Solstys Groupes&Co</a>.
+          <a target="_blank" href="https://solstys-sejours-groupes.net/"
+            >Solstys Groupes&Co</a
+          >.
         </p>
         <ul>
           <li>
@@ -95,12 +105,16 @@
           </li>
         </ul>
 
-        <div class="rk_contact">
+        <a
+          target="_blank"
+          href="https://solstys-sejours-groupes.net/"
+          class="rk_contact"
+        >
           <p class="orange">DÉCOUVRIR LE SITE</p>
           <div class="rk_arrow_circle light">
             <span class="rk_arrow"></span><span class="rk_circle"></span>
           </div>
-        </div>
+        </a>
       </div>
     </section>
     <div class="rk_separator_line"><div class="side"></div></div>
@@ -172,19 +186,15 @@
         </div>
         <div>
           <p class="title">Solstys</p>
-          <p>Responsable des opérations</p>
+          <p>Directeur des Opérations</p>
           <hr />
           <p>Yann Soleilland</p>
-          <hr class="slim" />
-          <p>06 19 50 84 62</p>
         </div>
         <div>
           <p class="title">GROUPE&PARTENAIRES</p>
           <p>Responsable service Groupes & Séminaires</p>
           <hr />
           <p>Camille JEAN</p>
-          <hr class="slim" />
-          <p>06 61 81 06 26</p>
         </div>
       </div>
       <div class="rk_left_txt">
@@ -196,7 +206,11 @@
     <div class="rk_right_txt">
       <a @click="formActiv = true">Contact</a>
       <span></span>
-      <a href="https://www.linkedin.com/">
+      <a
+        class="linkedin"
+        target="_blank"
+        href="https://www.linkedin.com/in/yann-soleilland-aa032a14/"
+      >
         <figure>
           <img src="/linkedin-icon.svg" alt="" />
         </figure>
@@ -209,7 +223,7 @@
           <div class="rk_content">
             <div class="cross" @click="formActiv = false"></div>
 
-            <form action="">
+            <form action="" @submit.prevent="handleSubmit">
               <div class="ctc_left">
                 <h2>contact</h2>
               </div>
@@ -219,33 +233,63 @@
                 répondrons dans les plus brefs délais.
               </p>
               <div class="rk_left">
-                <input type="text" name="nom" placeholder="Nom*" />
-                <input type="text" name="email" placeholder="Adresse mail*" />
+                <input
+                  v-model="form.nom"
+                  required
+                  type="text"
+                  name="nom"
+                  placeholder="Nom*"
+                />
+                <input
+                  v-model="form.email"
+                  required
+                  type="text"
+                  name="email"
+                  placeholder="Adresse mail*"
+                />
 
                 <input
                   type="text"
                   name="entreprise"
-                  placeholder="Entreprise*"
+                  placeholder="Entreprise"
+                  v-model="form.entreprise"
                 />
-                <input type="text" name="objet" placeholder="Objet*" />
+                <input
+                  type="text"
+                  name="objet"
+                  placeholder="Objet"
+                  v-model="form.objet"
+                />
               </div>
               <div class="rk_right">
-                <input type="text" name="prenom" placeholder="Prenom" />
                 <input
+                  type="text"
+                  name="prenom"
+                  placeholder="Prenom"
+                  v-model="form.prenom"
+                />
+                <input
+                  required
                   type="number"
                   name="numero"
                   placeholder="Numéro de téléphone*"
+                  v-model="form.numero"
                 />
-                <input type="text" name="poste" placeholder="Poste*" />
-
-                <select name="service" id="pet-select">
-                  <option disabled>Service concerné*</option>
+                <input
+                  type="text"
+                  name="poste"
+                  placeholder="Poste"
+                  v-model="form.poste"
+                />
+                <select name="service" v-model="form.service" id="pet-select">
+                  <option selected disabled>Service concerné</option>
 
                   <option value="tourisme">Tourisme</option>
                   <option value="metiers">Métiers de bouche</option>
                 </select>
               </div>
               <textarea
+                v-model="form.message"
                 name="message"
                 id=""
                 cols="30"
@@ -282,7 +326,10 @@
               <span class="rk_circle"></span>
             </div>
           </div>
-          <a class="linkedin" href="https://www.linkedin.com/">
+          <a
+            class="linkedin"
+            href="https://www.linkedin.com/in/yann-soleilland-aa032a14/"
+          >
             <figure>
               <img src="/linkedin-icon.svg" alt="" />
             </figure>
@@ -296,7 +343,9 @@
             <a href="">CGV</a>
           </div>
           <div class="right">
-            <a href="">Création graphique & développement</a>
+            <a target="_blank" href="https://angeliqueemonet.com/"
+              >Création graphique & </a
+            ><a target="_blank" href="http://owlf.school/">développement</a>
           </div>
         </div>
       </footer>
@@ -305,12 +354,85 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useToast } from "vue-toast-notification";
+import "vue-toast-notification/dist/theme-sugar.css";
 
 const formActiv = ref(false);
 const ready = ref(false);
 setTimeout(() => {
   ready.value = true;
 }, 400);
+
+const form = ref({
+  nom: "",
+  email: "",
+  entreprise: "",
+  objet: "",
+  prenom: "",
+  numero: "",
+  poste: "",
+  service: "",
+  message: "",
+});
+
+const handleSubmit = () => {
+  // Add basic form validation here, e.g., using libraries like vee-validate
+
+  const endpoint = "/contact.php"; // Replace with your actual endpoint
+  const headers = { "Content-Type": "application/json" };
+
+  fetch(endpoint, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(form.value),
+  })
+    .then((response) => {
+      if (response.status == 200) {
+        formActiv.value = false;
+        // Handle successful submission (e.g., clear form, display success message)
+        const $toast = useToast();
+        $toast.default("Votre message a bien été envoyé !", {
+          position: "bottom",
+          duration: 5000,
+          // all of other options may go here
+        });
+        form.value = {
+          nom: "",
+          email: "",
+          entreprise: "",
+          objet: "",
+          prenom: "",
+          numero: "",
+          poste: "",
+          service: "",
+          message: "",
+        };
+      } else {
+        const $toast = useToast();
+        let instance = $toast.error("Erreur lors de l'envoi du message", {
+          position: "bottom",
+          duration: 5000,
+          // all of other options may go here
+        });
+        form.value = {
+          nom: "",
+          email: "",
+          entreprise: "",
+          objet: "",
+          prenom: "",
+          numero: "",
+          poste: "",
+          service: "",
+          message: "",
+        };
+        // Handle error (e.g., display error message)
+      }
+    })
+    .catch((error) => {
+      // Handle network or other errors
+      console.error("Error:", error);
+    });
+};
 </script>
 
 <style lang="scss" scoped>
@@ -499,7 +621,7 @@ $filet: #707070;
           text-decoration: none;
         }
         &.orange {
-          font-family: "Bebas Neue", sans-serif;
+          font-family: "futura-pt";
           font-size: 31px;
           color: $orange;
         }
@@ -544,8 +666,9 @@ $filet: #707070;
         display: flex;
         align-items: center;
         margin-top: 40px;
+        text-decoration: none;
         p {
-          font-family: Futura;
+          font-family: "futura-pt";
           text-transform: uppercase;
           font-weight: 700;
           font-size: 12px;
@@ -592,6 +715,7 @@ $filet: #707070;
       }
       .content {
         display: flex;
+        align-items: start;
         h3 {
           display: inline-block;
           cursor: pointer;
@@ -720,7 +844,7 @@ $filet: #707070;
   .rk_right_txt {
     position: fixed;
     top: 50%;
-    transform: rotate(90deg) translatey(-80px);
+    transform: rotate(90deg) translatey(-120px);
     a {
       color: $oposcolor;
       cursor: pointer;
@@ -751,11 +875,95 @@ $filet: #707070;
     .rk_two {
       p,
       li {
-        max-width: 49vw;
+        max-width: 40vw;
       }
     }
   }
 }
+@media screen and (max-width: 1530px) {
+  .rk_whitepage {
+    .rk_middle_sct {
+      .rk_two {
+        transform: translateX(0%);
+      }
+    }
+    .rk_middle_sct:not(.white) {
+      .rk_one,
+      .rk_two {
+        h4 {
+          font-size: 40px;
+        }
+        .rk_deco_b {
+          display: inline-block;
+        }
+      }
+
+      .rk_two {
+        width: 50%;
+        margin-left: 50%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        ul {
+          direction: ltr;
+          padding-right: 15px;
+          li {
+            padding-right: 10px;
+          }
+        }
+        p.orange {
+          text-align: left;
+        }
+        .upSplit {
+          width: 100%;
+        }
+        h4 {
+          text-align: left;
+          &:nth-child(3):before {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1380px) {
+  .rk_one {
+    .rk_deco_b {
+      margin-left: 120px;
+    }
+  }
+  .rk_middle_sct:not(.white) {
+    .rk_two {
+      h3 {
+        margin-left: 120px;
+      }
+    }
+  }
+  .rk_deco_b.bottom {
+    position: relative;
+    margin-left: 120px;
+    &:before {
+      display: block !important;
+      content: "";
+      width: 120px;
+      height: 1px;
+      background-color: #06090b;
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      transform: translateX(-160px) !important;
+    }
+    img {
+      width: 120px;
+
+      transform: translateX(-120px) translateY(10px);
+    }
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .rk_whitepage {
     h2 {
@@ -767,47 +975,6 @@ $filet: #707070;
     }
     .rk_right_txt {
       transform: rotate(90deg) translatey(-138px);
-    }
-    .rk_middle_sct {
-      .rk_one,
-      .rk_two {
-        h4 {
-          font-size: 40px;
-        }
-        .rk_deco_b {
-          display: inline-block;
-        }
-      }
-      .rk_one {
-        .rk_deco_b {
-          margin-left: 120px;
-        }
-      }
-      .rk_two {
-        transform: translateX(0%);
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        ul {
-          direction: rtl;
-          padding-right: 15px;
-          li {
-            padding-right: 10px;
-          }
-        }
-        p.orange {
-          text-align: right;
-        }
-        .upSplit {
-          width: 100%;
-        }
-        h4 {
-          text-align: right;
-          &:nth-child(3):before {
-            right: 0;
-          }
-        }
-      }
     }
   }
 }
@@ -892,6 +1059,8 @@ $filet: #707070;
       }
       .rk_one,
       .rk_two {
+        width: 100% !important;
+        margin-left: 0% !important;
         h4 {
           font-size: 55px;
         }
@@ -903,24 +1072,6 @@ $filet: #707070;
           h3 {
             padding-left: 0;
           }
-        }
-      }
-      .rk_deco_b {
-        position: relative;
-        margin-left: 60px;
-        &:before {
-          display: block !important;
-          content: "";
-          width: 120px;
-          height: 1px;
-          background-color: #06090b;
-          position: absolute;
-          bottom: 4px;
-          left: 0;
-          transform: translateX(-160px) !important;
-        }
-        &:after {
-          transform: translateX(-100%) translateY(-15px);
         }
       }
     }

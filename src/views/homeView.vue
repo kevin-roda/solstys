@@ -21,17 +21,26 @@
         <p></p>
         <p>sur-mesure</p>
       </div>
-      <RouterLink to="/formations" class="rk_home_btn">Tourisme</RouterLink>
+      <RouterLink to="/tourisme" class="rk_home_btn">Tourisme </RouterLink>
       <div class="bottom_ctt"></div>
     </div>
     <div class="rk_sct_right">
-      <RouterLink to="/tourisme" class="rk_home_btn"
+      <RouterLink to="/formations" class="rk_home_btn"
         >Métiers<br />
         de bouche</RouterLink
       >
       <div class="rk_right_txt">
         <a @click="formActiv = true">Contact</a>
         <span></span>
+        <a
+          class="linkedin"
+          target="_blank"
+          href="https://www.linkedin.com/in/yann-soleilland-aa032a14/"
+        >
+          <figure>
+            <img src="/linkedin-icon.svg" alt="logo linkedin" />
+          </figure>
+        </a>
       </div>
       <div class="bottom_ctt"></div>
       <div class="wrap_video">
@@ -51,7 +60,7 @@
           <div class="rk_content">
             <div class="cross" @click="formActiv = false"></div>
 
-            <form action="">
+            <form action="" @submit.prevent="handleSubmit">
               <div class="ctc_left">
                 <h2>contact</h2>
               </div>
@@ -61,27 +70,63 @@
                 répondrons dans les plus brefs délais.
               </p>
               <div class="rk_left">
-                <input type="text" name="nom" placeholder="Nom*" />
-                <input type="text" name="email" placeholder="Adresse mail*" />
+                <input
+                  v-model="form.nom"
+                  required
+                  type="text"
+                  name="nom"
+                  placeholder="Nom*"
+                />
+                <input
+                  v-model="form.email"
+                  required
+                  type="text"
+                  name="email"
+                  placeholder="Adresse mail*"
+                />
 
-                <input type="text" name="entreprise" placeholder="Entreprise" />
-                <input type="text" name="objet" placeholder="objet" />
+                <input
+                  type="text"
+                  name="entreprise"
+                  placeholder="Entreprise"
+                  v-model="form.entreprise"
+                />
+                <input
+                  type="text"
+                  name="objet"
+                  placeholder="Objet"
+                  v-model="form.objet"
+                />
               </div>
               <div class="rk_right">
-                <input type="text" name="prenom" placeholder="Prenom" />
                 <input
+                  type="text"
+                  name="prenom"
+                  placeholder="Prenom"
+                  v-model="form.prenom"
+                />
+                <input
+                  required
                   type="number"
                   name="numero"
                   placeholder="Numéro de téléphone*"
+                  v-model="form.numero"
                 />
-                <input type="text" name="poste" placeholder="Poste*" />
                 <input
                   type="text"
-                  name="service"
-                  placeholder="Service concerné*"
+                  name="poste"
+                  placeholder="Poste"
+                  v-model="form.poste"
                 />
+                <select name="service" v-model="form.service" id="pet-select">
+                  <option selected disabled>Service concerné</option>
+
+                  <option value="tourisme">Tourisme</option>
+                  <option value="metiers">Métiers de bouche</option>
+                </select>
               </div>
               <textarea
+                v-model="form.message"
                 name="message"
                 id=""
                 cols="30"
@@ -109,7 +154,20 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useToast } from "vue-toast-notification";
+import "vue-toast-notification/dist/theme-sugar.css";
 const formActiv = ref(false);
+const form = ref({
+  nom: "",
+  email: "",
+  entreprise: "",
+  objet: "",
+  prenom: "",
+  numero: "",
+  poste: "",
+  service: "",
+  message: "",
+});
 
 const data = ref({
   sectionLeft: {
@@ -119,19 +177,81 @@ const data = ref({
     urlVideo: "/accueil.mp4",
   },
 });
+
+const handleSubmit = () => {
+  // Add basic form validation here, e.g., using libraries like vee-validate
+
+  const endpoint = "/contact.php"; // Replace with your actual endpoint
+  const headers = { "Content-Type": "application/json" };
+
+  fetch(endpoint, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(form.value),
+  })
+    .then((response) => {
+      if (response.status == 200) {
+        formActiv.value = false;
+        // Handle successful submission (e.g., clear form, display success message)
+        const $toast = useToast();
+        $toast.default("Votre message a bien été envoyé !", {
+          position: "bottom",
+          duration: 5000,
+          // all of other options may go here
+        });
+        form.value = {
+          nom: "",
+          email: "",
+          entreprise: "",
+          objet: "",
+          prenom: "",
+          numero: "",
+          poste: "",
+          service: "",
+          message: "",
+        };
+      } else {
+        const $toast = useToast();
+        let instance = $toast.error("Erreur lors de l'envoi du message", {
+          position: "bottom",
+          duration: 5000,
+          // all of other options may go here
+        });
+        form.value = {
+          nom: "",
+          email: "",
+          entreprise: "",
+          objet: "",
+          prenom: "",
+          numero: "",
+          poste: "",
+          service: "",
+          message: "",
+        };
+        // Handle error (e.g., display error message)
+      }
+    })
+    .catch((error) => {
+      // Handle network or other errors
+      console.error("Error:", error);
+    });
+};
 </script>
 <style lang="scss" scoped>
 $filet: #707070;
+$orange: #fb8c24;
 .rk_section_home {
   background-color: white;
-  min-height: 100vh;
   display: flex;
   justify-content: stretch;
   flex-wrap: wrap;
   max-width: 100vw;
   width: 100%;
-
+  min-height: 770px;
+  height: 100%;
   .rk_sct_left {
+    min-height: 770px;
+    height: 100vh;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -212,9 +332,23 @@ $filet: #707070;
     background-color: black;
     position: relative;
     width: 50%;
+    min-height: 770px;
+    height: 100vh;
     display: flex;
     align-items: end;
     overflow: hidden;
+    .rk_right_txt {
+      figure {
+        padding: 8.5px 10px;
+        border: solid 2px $orange;
+        border-radius: 50%;
+        transform: rotate(-90deg) translatex(-25%);
+        margin: 0;
+        img {
+          width: 20px;
+        }
+      }
+    }
     > * {
       z-index: 1;
     }

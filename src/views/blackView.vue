@@ -28,14 +28,18 @@
 
     <section class="rk_middle_sct">
       <div class="rk_one">
-        <h3 class="rk_deco_b bottom" content="01">Notre coeur de métier</h3>
+        <h3 class="rk_deco_b bottom">
+          <img src="/01-Solstys.svg" alt="01" srcset="" />Notre coeur de métier
+        </h3>
         <p>
           Améliorer votre <br />offre en tenant compte <br />
           des indicateurs de gestion.
         </p>
       </div>
       <div class="rk_two">
-        <h3 class="rk_deco_b bottom" content="02">Nos moyens</h3>
+        <h3 class="rk_deco_b bottom">
+          <img src="/02-Solstys.svg" alt="01" srcset="" />Nos moyens
+        </h3>
         <p>
           L’expertise de plus <br />
           de 100 intervenants
@@ -94,7 +98,6 @@
           <hr />
           <p>Fabrice MEGEVAND</p>
           <hr class="slim" />
-          <p>06 19 50 84 62</p>
           <p>f.megevand@solstys.net</p>
         </div>
       </div>
@@ -129,7 +132,11 @@
     <div class="rk_right_txt">
       <a @click="formActiv = true">Contact</a>
       <span></span>
-      <a href="https://www.linkedin.com/">
+      <a
+        class="linkedin"
+        target="_blank"
+        href="https://www.linkedin.com/in/yann-soleilland-aa032a14/"
+      >
         <figure>
           <img src="/linkedin-icon.svg" alt="" />
         </figure>
@@ -141,8 +148,7 @@
         <div v-if="formActiv" class="rk_contactform">
           <div class="rk_content">
             <div class="cross" @click="formActiv = false"></div>
-
-            <form action="">
+            <form action="" @submit.prevent="handleSubmit">
               <div class="ctc_left">
                 <h2>contact</h2>
               </div>
@@ -152,28 +158,63 @@
                 répondrons dans les plus brefs délais.
               </p>
               <div class="rk_left">
-                <input type="text" name="nom" placeholder="Nom*" />
-                <input type="text" name="email" placeholder="Adresse mail*" />
+                <input
+                  v-model="form.nom"
+                  required
+                  type="text"
+                  name="nom"
+                  placeholder="Nom*"
+                />
+                <input
+                  v-model="form.email"
+                  required
+                  type="text"
+                  name="email"
+                  placeholder="Adresse mail*"
+                />
 
-                <input type="text" name="entreprise" placeholder="Entreprise" />
-                <input type="text" name="objet" placeholder="Objet*" />
+                <input
+                  type="text"
+                  name="entreprise"
+                  placeholder="Entreprise"
+                  v-model="form.entreprise"
+                />
+                <input
+                  type="text"
+                  name="objet"
+                  placeholder="Objet"
+                  v-model="form.objet"
+                />
               </div>
               <div class="rk_right">
-                <input type="text" name="prenom" placeholder="Prenom" />
                 <input
+                  type="text"
+                  name="prenom"
+                  placeholder="Prenom"
+                  v-model="form.prenom"
+                />
+                <input
+                  required
                   type="number"
                   name="numero"
                   placeholder="Numéro de téléphone*"
+                  v-model="form.numero"
                 />
-                <input type="text" name="poste" placeholder="Poste*" />
-                <select name="service" id="pet-select">
-                  <option selected disabled>Service concerné*</option>
+                <input
+                  type="text"
+                  name="poste"
+                  placeholder="Poste"
+                  v-model="form.poste"
+                />
+                <select name="service" v-model="form.service" id="pet-select">
+                  <option selected disabled>Service concerné</option>
 
                   <option value="tourisme">Tourisme</option>
                   <option value="metiers">Métiers de bouche</option>
                 </select>
               </div>
               <textarea
+                v-model="form.message"
                 name="message"
                 id=""
                 cols="30"
@@ -210,7 +251,11 @@
               <span class="rk_circle"></span>
             </div>
           </div>
-          <a class="linkedin" href="https://www.linkedin.com/">
+          <a
+            class="linkedin"
+            target="_blank"
+            href="https://www.linkedin.com/in/yann-soleilland-aa032a14/"
+          >
             <figure>
               <img src="/linkedin-icon.svg" alt="" />
             </figure>
@@ -226,7 +271,9 @@
             </form>
           </div>
           <div class="right">
-            <a href="">Création graphique & développement</a>
+            <a target="_blank" href="https://angeliqueemonet.com/"
+              >Création graphique & </a
+            ><a target="_blank" href="http://owlf.school/">développement</a>
           </div>
         </div>
       </footer>
@@ -236,6 +283,8 @@
 
 <script setup>
 import { ref } from "vue";
+import { useToast } from "vue-toast-notification";
+import "vue-toast-notification/dist/theme-sugar.css";
 
 const formActiv = ref(false);
 const ready = ref(false);
@@ -243,6 +292,77 @@ const ready = ref(false);
 setTimeout(() => {
   ready.value = true;
 }, 400);
+
+const form = ref({
+  nom: "",
+  email: "",
+  entreprise: "",
+  objet: "",
+  prenom: "",
+  numero: "",
+  poste: "",
+  service: "",
+  message: "",
+});
+
+const handleSubmit = () => {
+  // Add basic form validation here, e.g., using libraries like vee-validate
+
+  const endpoint = "/contact.php"; // Replace with your actual endpoint
+  const headers = { "Content-Type": "application/json" };
+
+  fetch(endpoint, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(form.value),
+  })
+    .then((response) => {
+      if (response.status == 200) {
+        formActiv.value = false;
+        // Handle successful submission (e.g., clear form, display success message)
+        const $toast = useToast();
+        $toast.default("Votre message a bien été envoyé !", {
+          position: "bottom",
+          duration: 5000,
+          // all of other options may go here
+        });
+        form.value = {
+          nom: "",
+          email: "",
+          entreprise: "",
+          objet: "",
+          prenom: "",
+          numero: "",
+          poste: "",
+          service: "",
+          message: "",
+        };
+      } else {
+        const $toast = useToast();
+        let instance = $toast.error("Erreur lors de l'envoi du message", {
+          position: "bottom",
+          duration: 5000,
+          // all of other options may go here
+        });
+        form.value = {
+          nom: "",
+          email: "",
+          entreprise: "",
+          objet: "",
+          prenom: "",
+          numero: "",
+          poste: "",
+          service: "",
+          message: "",
+        };
+        // Handle error (e.g., display error message)
+      }
+    })
+    .catch((error) => {
+      // Handle network or other errors
+      console.error("Error:", error);
+    });
+};
 </script>
 
 <style lang="scss" scoped>
@@ -579,6 +699,52 @@ $filet: #707070;
     z-index: 3;
   }
 }
+@media screen and (max-width: 1530px) {
+  .rk_blackpage {
+    .rk_middle_sct {
+      .rk_one,
+      .rk_two {
+        h4 {
+          font-size: 40px;
+        }
+        .rk_deco_b {
+          display: inline-block;
+        }
+      }
+
+      .rk_two {
+        width: 50%;
+        margin-left: 50%;
+        transform: translateX(0%);
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        h3 {
+          margin-left: 0px;
+        }
+        ul {
+          direction: ltr;
+          padding-right: 15px;
+          li {
+            padding-right: 10px;
+          }
+        }
+        p.orange {
+          text-align: left;
+        }
+        .upSplit {
+          width: 100%;
+        }
+        h4 {
+          text-align: left;
+          &:nth-child(3):before {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 1280px) {
   .rk_blackpage {
     h2 {
@@ -597,26 +763,10 @@ $filet: #707070;
         p {
           font-size: 40px;
         }
-        .rk_deco_b {
-          display: inline-block;
-        }
       }
       .rk_one {
         .rk_deco_b {
-          margin-left: 120px;
-        }
-      }
-      .rk_two {
-        transform: translateX(0%);
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-
-        p {
-          text-align: right;
-          &:nth-child(3):before {
-            right: 0;
-          }
+          margin-left: 180px;
         }
       }
     }
@@ -717,6 +867,8 @@ $filet: #707070;
       }
       .rk_one,
       .rk_two {
+        width: 100%;
+        margin-left: 0%;
         align-items: start;
         p {
           width: 100%;
@@ -728,6 +880,11 @@ $filet: #707070;
         }
         .rk_deco_b {
           margin-left: 120px;
+          display: inline-block;
+          img {
+            width: 120px;
+            transform: translateX(-120px) translateY(10px);
+          }
         }
         h4 {
           font-size: 55px;
@@ -752,7 +909,7 @@ $filet: #707070;
           left: 0;
           transform: translateX(-160px) !important;
         }
-        &:after {
+        img {
           transform: translateX(-100%) translateY(-15px);
         }
       }
