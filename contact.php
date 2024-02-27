@@ -2,6 +2,8 @@
 
 // Définissez l'adresse email de destination
 $destinataire = "kevin@owlf.school";
+// $destinataire = "contact@solstys.net";
+
 $json = file_get_contents('php://input');
 
 // Le convertit en objet PHP

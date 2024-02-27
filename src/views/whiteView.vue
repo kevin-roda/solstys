@@ -186,7 +186,7 @@
         </div>
         <div>
           <p class="title">Solstys</p>
-          <p>Directeur des Opérations</p>
+          <p>Président fondateur</p>
           <hr />
           <p>Yann Soleilland</p>
         </div>
@@ -338,7 +338,7 @@
         <hr />
         <div class="rk_down">
           <div class="left">
-            <a href="">Mentions légales</a>
+            <RouterLink to="/mentions-legales"> Mentions légales </RouterLink>
             |
             <a href="">CGV</a>
           </div>

@@ -264,7 +264,7 @@
         <hr />
         <div class="rk_down">
           <div class="left">
-            <a href="">Mentions légales</a>
+            <RouterLink to="/mentions-legales"> Mentions légales </RouterLink>
             |
             <form method="get" target="_blank" action="/CGV.pdf">
               <button type="submit">CGV</button>
