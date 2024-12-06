@@ -122,6 +122,11 @@
           <button type="submit">INDICATEURS DE RÉSULTATS</button>
         </form>
       </div>
+      <div class="downloads">
+        <form method="get" target="_blank" action="/Qualiopi.pdf">
+          <button type="submit">QUALIOPI</button>
+        </form>
+      </div>
       <img src="/qualiopi.png" alt="logo qualiopi" />
       <div class="rk_left_txt">
         <span></span>
